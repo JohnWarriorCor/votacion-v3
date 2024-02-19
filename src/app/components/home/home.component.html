@@ -1,0 +1,220 @@
+<mat-tab-group #tabgroup mat-align-tabs="center" *ngIf="!estadisticas">
+  <mat-tab label="ELECCIÓN DE PERSONERO" [disabled]="personeroTab">
+    <div class="container mt-5">
+      <div class="row text-center">
+        <div class="col">
+          <div
+            class="card eleccion"
+            (click)="votoPersonero(personero1)"
+            (click)="tabgroup.selectedIndex = 1"
+          >
+            <img src="assets/personero1.png" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="card eleccion"
+            (click)="votoPersonero(personero2)"
+            (click)="tabgroup.selectedIndex = 1"
+          >
+            <img src="assets/personero2.png" class="img-fluid" />
+          </div>
+        </div>
+        <!-- <div class="col">
+        <div
+          class="card eleccion"
+
+          (click)="votoPersonero(personero3)"
+          (click)="tabgroup.selectedIndex = 1"
+        >
+          <img src="assets/personero3.png" style="width: 50%;" />
+        </div>
+      </div> -->
+        <div class="col oculto-impresion">
+          <div
+            class="card eleccion"
+            (click)="votoPersonero(blancoPersonero)"
+            (click)="tabgroup.selectedIndex = 1"
+          >
+            <img src="assets/blanco.png" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="ELECCIÓN DE CONTRALOR" [disabled]="contralorTab">
+    <div class="container mt-5">
+      <div class="row text-center">
+        <div class="col">
+          <div
+            class="card eleccion"
+            (click)="votoContralor(contralor1)"
+            (click)="tabgroup.selectedIndex = 2"
+          >
+            <img src="assets/contralor1.png" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="card eleccion"
+            (click)="votoContralor(contralor2)"
+            (click)="tabgroup.selectedIndex = 2"
+          >
+            <img src="assets/contralor2.png" class="img-fluid" />
+          </div>
+        </div>
+        <!--  <div class="col">
+        <div
+          class="card eleccion"
+
+          (click)="votoContralor(contralor3)"
+          (click)="tabgroup.selectedIndex = 2"
+        >
+          <img src="assets/contralor3.png" style="width: 50%;" />
+        </div>
+      </div>
+      <div class="col">
+        <div
+          class="card eleccion"
+
+          (click)="votoContralor(contralor4)"
+          (click)="tabgroup.selectedIndex = 2"
+        >
+          <img src="assets/contralor4.png" style="width: 50%;" />
+        </div>
+      </div> -->
+        <div class="col oculto-impresion">
+          <div
+            class="card eleccion"
+            (click)="votoContralor(blancoContralor)"
+            (click)="tabgroup.selectedIndex = 2"
+          >
+            <img src="assets/blanco.png" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="FINALIZACIÓN" [disabled]="finalTab">
+    <div class="container mt-5">
+      <div class="row text-center">
+        <div class="col"></div>
+        <div class="col">
+          <div class="card eleccion" (click)="tabgroup.selectedIndex = 0">
+            <img src="assets/gracias.png" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<div class="container mt-4 mb-4" *ngIf="estadisticas">
+  <div class="row mb-5">
+    <div class="col">
+      <img src="assets/rotulo.png" style="width: 100%" />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col"><h4>Resultados obtenidos:</h4></div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table" style="vertical-align: middle">
+        <thead class="thead-dark">
+          <tr>
+            <th colspan="3">Personero</th>
+          </tr>
+          <tr>
+            <th scope="col" style="width: 30%">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Votos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">01</th>
+            <td>Maria Valentina Quesada Cruz</td>
+            <td>{{ votoPersonero1 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">02</th>
+            <td>Mariana Lizeth Tovar Cuenca</td>
+            <td>{{ votoPersonero2 }}</td>
+          </tr>
+          <!-- <tr>
+            <th scope="row">03</th>
+            <td>Jhoan Sebastián Moreno Andrade</td>
+            <td>{{ votoPersonero3 }}</td>
+          </tr> -->
+          <tr>
+            <th scope="row">--</th>
+            <td>Voto en blanco</td>
+            <td>{{ votoBlancoPersonero }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br /><br />
+      <table class="table" style="vertical-align: middle">
+        <thead class="thead-dark">
+          <tr>
+            <th colspan="3">Contralor</th>
+          </tr>
+          <tr>
+            <th scope="col" style="width: 30%">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Votos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">01</th>
+            <td>Danna Yulieth Leal Corredor</td>
+            <td>{{ votoContralor1 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">02</th>
+            <td>Duvan Astaiza Torres</td>
+            <td>{{ votoContralor2 }}</td>
+          </tr>
+          <!-- <tr>
+            <th scope="row">03</th>
+            <td>Saira Nicol Rodríguez Garrido</td>
+            <td>{{ votoContralor3 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">04</th>
+            <td>Lorenzo Andrés Polania Trujillo</td>
+            <td>{{ votoContralor4 }}</td>
+          </tr> -->
+          <tr>
+            <th scope="row">--</th>
+            <td>Voto en blanco</td>
+            <td>{{ votoBlancoContralor }}</td>
+          </tr>
+          <thead class="thead-dark">
+            <tr style="font-size: 25px">
+              <th scope="col">Total de votos</th>
+              <th colspan="2">{{ votosTotales }}</th>
+            </tr>
+          </thead>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="conatainer text-center" *ngIf="estadisticas">
+  <div class="row">
+    <div class="col">
+      <button
+        type="button"
+        class="btn btn-success oculto-impresion"
+        name="imprimir"
+        onclick="window.print();"
+      >
+        <i class="fas fa-print"> Imprimir</i>
+      </button>
+    </div>
+  </div>
+</div>
